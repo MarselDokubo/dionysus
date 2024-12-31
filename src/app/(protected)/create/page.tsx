@@ -78,7 +78,7 @@ export default function NewProject() {
                       <FormLabel>Repository</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="https://github.com/username/projectname.git"
+                          placeholder="https://github.com/username/project-name"
                           {...field}
                         />
                       </FormControl>

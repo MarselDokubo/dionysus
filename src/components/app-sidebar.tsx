@@ -96,7 +96,10 @@ export function AppSidebar() {
               {projects?.map((project) => (
                 <SidebarMenuItem key={project.name}>
                   <SidebarMenuButton asChild>
-                    <div>
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => setProjectId(project.id)}
+                    >
                       <div
                         className={cn(
                           "flex size-6 items-center justify-center rounded-sm border bg-white text-sm text-primary",
@@ -104,7 +107,6 @@ export function AppSidebar() {
                             "bg-primary text-white": project.id === projectId,
                           },
                         )}
-                        onClick={() => setProjectId(project.id)}
                       >
                         {project.name[0]}
                       </div>
