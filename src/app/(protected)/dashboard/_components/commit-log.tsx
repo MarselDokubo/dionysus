@@ -1,5 +1,4 @@
 import { ExternalLink } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import useProject from "~/hooks/use-project";
 import { cn } from "~/lib/utils";
@@ -13,7 +12,7 @@ export default function CommitLog() {
     <>
       <ul className="space-y-0">
         {commits?.map((commit, index) => (
-          <li className="relative flex gap-x-4">
+          <li className="relative flex gap-x-4" key={commit.id}>
             <div
               className={cn(
                 index === commits.length - 1 ? "h-0" : "-bottom-0",
@@ -23,7 +22,7 @@ export default function CommitLog() {
               <div className="w-px translate-x-1 bg-gray-200"></div>
             </div>
             <>
-              <Image
+              <img
                 src={commit.commitAuthorAvatar}
                 alt="commit author avatar"
                 className="relative mt-3 size-8 flex-none rounded-full bg-gray-50"
@@ -39,12 +38,15 @@ export default function CommitLog() {
                       {commit.commitAuthorName}
                     </span>
                     <span className="inline-flex items-center">
+                      {" "}
                       commited
                       <ExternalLink className="ml-1 size-4" />
                     </span>
                   </Link>
                 </div>
-                <span className="font-semid">{commit.commitMessage}</span>
+                <span className="font-semid first-letter:text-4xl first-letter:uppercase">
+                  {commit.commitMessage}
+                </span>
                 <pre className="mt-2 whitespace-pre-wrap text-sm leading-6 text-gray-500">
                   {commit.summary}
                 </pre>
