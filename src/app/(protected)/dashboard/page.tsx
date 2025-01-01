@@ -3,6 +3,7 @@ import { useUser } from "@clerk/nextjs";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import useProject from "~/hooks/use-project";
+import CommitLog from "./_components/commit-log";
 
 export default function DashboardPage() {
   const user = useUser();
@@ -27,6 +28,8 @@ export default function DashboardPage() {
             AskQuestions MeetingCard
           </div>
         </div>
+        <div className="mt-8"></div>
+        <CommitLog />
       </div>
     </>
   );
